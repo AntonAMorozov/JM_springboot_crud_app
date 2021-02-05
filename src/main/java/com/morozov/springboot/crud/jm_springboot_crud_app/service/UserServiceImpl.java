@@ -6,8 +6,6 @@ import com.morozov.springboot.crud.jm_springboot_crud_app.dao.UserRepository;
 import com.morozov.springboot.crud.jm_springboot_crud_app.model.Role;
 import com.morozov.springboot.crud.jm_springboot_crud_app.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,11 +20,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RoleRepository roleRepository;
 
-    @Autowired
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -34,7 +27,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) {
-        user.setPassword(passwordEncoder().encode(user.getPassword()));
         userRepository.save(user);
     }
 
