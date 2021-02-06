@@ -1,36 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" id="user-info-html">
 <head>
     <meta charset="UTF-8">
     <title>Add/Update user</title>
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0
-        }
-
-        #action_form {
-            position: absolute;
-            width: 200px;
-            height: 300px;
-            margin-left: 10px;
-        }
-
-        form {
-            padding: 14px
-        }
-
-        ul {
-            margin-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body id="user-info-body">
 
-<ul>
+<div class="user-info">
     <h2>User Info</h2>
-</ul>
+</div>
 
 <div id="action_form">
     <form th:method="post" th:action="@{/admin/saveUser}" th:object="${newUser}">
@@ -67,6 +46,7 @@
         <br>
         <br>
         <input type="submit" value="Ok">
+        <input type="reset" value="Clear">
     </form>
 </div>
 

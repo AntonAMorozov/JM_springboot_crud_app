@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <p th:if="${param.error}">
+    <p style="color: blueviolet" th:if="${param.error}">
         Oops! Please check username or password you entered and try again.
     </p>
     <form method="post" action="/login">
