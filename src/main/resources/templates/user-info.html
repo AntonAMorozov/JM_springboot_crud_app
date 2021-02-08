@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Add/Update user</title>
-    <link rel="stylesheet" href="main.css">
+    <link href="/main.css" rel="stylesheet">
+
 </head>
 <body id="user-info-body">
 
@@ -12,12 +13,12 @@
 </div>
 
 <div id="action_form">
-    <form th:method="post" th:action="@{/admin/saveUser}" th:object="${newUser}">
+    <form th:method="post" th:action="@{/admin/saveUser}" th:object="${newUser}" id="main-form">
 
-        <input hidden type="number" th:field="*{id}" id="id"/>
+        <input hidden type="number" th:field="*{id}" id="id" name="id"/>
 
         <label for="username">Username: </label>
-        <input type="text" th:field="*{username}" id="username" placeholder="Username" th:required="true"/>
+        <input type="text" th:field="*{username}" id="username" placeholder="Username" name="username" th:required="true"/>
         <br>
         <label for="password">Password</label>
         <input type="text" th:field="*{password}" id="password" placeholder="Password" th:required="true"/>
@@ -26,7 +27,7 @@
         <input type="text" th:field="*{firstname}" id="firstname" placeholder="First Name"/>
         <br>
         <label for="lastname">Last Name</label>
-        <input type="text" th:field="*{lastname}" id="lastname" name="lol" th:name="kek" placeholder="Last Name"/>
+        <input type="text" th:field="*{lastname}" id="lastname" placeholder="Last Name"/>
         <br>
         <label for="age">Age</label>
         <input type="number" th:field="*{age}" id="age" placeholder="Age"/>
@@ -45,11 +46,11 @@
         </div>
         <br>
         <br>
-        <input type="submit" value="Ok">
+        <input type="submit" name="submit" value="Ok">
         <input type="reset" value="Clear">
     </form>
 </div>
 
-
+<script type="text/javascript" th:src="@{/js.js}"></script>
 </body>
 </html>
